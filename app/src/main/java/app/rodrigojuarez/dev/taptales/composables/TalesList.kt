@@ -45,6 +45,7 @@ import app.rodrigojuarez.dev.taptales.model.TalesViewModel
 import app.rodrigojuarez.dev.taptales.ui.theme.Pink80
 import app.rodrigojuarez.dev.taptales.ui.theme.StolenPurple
 import app.rodrigojuarez.dev.taptales.ui.theme.StolenYellow
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -74,6 +75,7 @@ fun TalesList(navHostController: NavHostController) {
     }
 }
 
+@OptIn(DelicateCoroutinesApi::class)
 @Composable
 fun TaleCard(navHostController: NavHostController, tale: Tale) {
     val db = LocalAppDatabase.current

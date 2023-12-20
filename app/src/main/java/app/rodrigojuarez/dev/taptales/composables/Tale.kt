@@ -22,10 +22,12 @@ import androidx.compose.ui.unit.dp
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.model.Tale
 import app.rodrigojuarez.dev.taptales.ui.theme.StolenOrange
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+@OptIn(DelicateCoroutinesApi::class)
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun Tale(slug: String?) {
