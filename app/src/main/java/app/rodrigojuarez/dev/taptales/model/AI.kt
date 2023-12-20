@@ -15,9 +15,9 @@ object AI {
     suspend fun requestTale(childName: String, age: String, language: String): Tale? {
         val template = """
                 {
-                  "slug": "your-imaginative-title",
+                  "slug": "<your-imaginative-title>",
                   "title": "<Your imaginative title>",
-                  "readingTime": "<minutes to read the story>",
+                  "readingTime": "<Minutes to read the story>",
                   "paragraphs": [
                       "<Introduction of the story and setting>",
                       "<Development of the plot>",
@@ -31,8 +31,8 @@ object AI {
             """.trimIndent()
         val prompt = """
                 You are an imaginative writer tasked with creating personalized short stories for 
-                children. Each story is custom-made for a specific child, based on dynamic input data.
-                Please process the following dynamic input data to craft your story:
+                children. Each story is custom-made for a specific child.
+                Please process the following data to craft your story:
                 
                 ```
                 { 
@@ -49,16 +49,18 @@ object AI {
                 - Story Content: Compose a narrative that is both engaging and matches the 
                 requested language. The story should contain around 7 paragraphs, with a total 
                 character count of 2000 to 2500 characters.
-                - Originality: The story must be original and not a translation. 
+                - Originality: The story must be original. 
                 It should be specifically crafted for the child, considering their age.
                 
                 Structure your story in this JSON format:
                 
                 $template
                 
-                Focus on creating a magical and immersive narrative that sparks imagination and joy in a young child's mind.
+                Focus on creating a magical and immersive narrative that sparks imagination and joy 
+                in a young child's mind.
                 
                 Important: do not include any text or comments outside the given JSON structure.
+                If for any reason, you're unable to create a story, just return "false".
             """.trimIndent()
         val response = generativeModel.generateContent(prompt)
         println("Respuesta de la IA: ${response.text}")
