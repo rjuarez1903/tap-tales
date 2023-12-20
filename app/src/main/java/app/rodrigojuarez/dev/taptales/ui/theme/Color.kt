@@ -1,0 +1,28 @@
+package app.rodrigojuarez.dev.taptales.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Purple80 = Color(0xFFD0BCFF)
+val PurpleGrey80 = Color(0xFFCCC2DC)
+val Pink80 = Color(0xFFEFB8C8)
+
+val Purple40 = Color(0xFF6650a4)
+val PurpleGrey40 = Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
+val DarkPink = Color(0xFF311D36)
+
+val DarkPurple = Color(0xFF161026)
+val DarkerPurple = Color(0xFF171127)
+val DeepPurple = Color(0xFF181228)
+val VeryDarkPurple = Color(0xFF0D0118)
+val PurpleGrey = Color(0xFF191329)
+val TwilightPurple = Color(0xFF1A142A)
+val DuskPurple = Color(0xFF1B152B)
+val ShadowPurple = Color(0xFF191229)
+val MidnightPurple = Color(0xFF0E0219)
+val BlackPurple = Color(0xFF0C0017)
+
+val StolenNight = Color(0xFF141927)
+val StolenPurple = Color(0xFF282137)
+val StolenYellow = Color(0xFFE0C098)
+val StolenOrange = Color(0xFFD0823F)
