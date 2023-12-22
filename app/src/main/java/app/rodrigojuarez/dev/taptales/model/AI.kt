@@ -62,7 +62,7 @@ object AI {
                 If for any reason, you're unable to create a story, just return "false".
             """.trimIndent()
         val response = generativeModel.generateContent(prompt)
-        println("Respuesta de la IA: ${response.text}")
+        Log.d("AI","AI response: ${response.text}")
         val tale = if (response.text == "false") {
             null
         } else {

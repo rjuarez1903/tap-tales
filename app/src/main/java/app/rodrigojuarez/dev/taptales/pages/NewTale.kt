@@ -14,9 +14,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -24,6 +26,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults.colors
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -186,6 +189,9 @@ fun NewTale(navHostController: NavHostController) {
                             value = language,
                             onValueChange = {},
                             readOnly = true,
+                            trailingIcon = {
+                                ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpanded)
+                            },
                             modifier = Modifier
                                 .menuAnchor()
                                 .fillMaxWidth(),
@@ -196,12 +202,13 @@ fun NewTale(navHostController: NavHostController) {
                             ),
                             shape = RoundedCornerShape(16.dp)
                         )
-                        ExposedDropdownMenu(
+                        DropdownMenu(
                             expanded = isExpanded,
+                            onDismissRequest = { isExpanded = false },
                             modifier = Modifier
                                 .background(DuskPurple)
-                                .clip(RoundedCornerShape(16.dp)),
-                            onDismissRequest = { isExpanded = false }) {
+                                .exposedDropdownSize(),
+                        ) {
                             languages.forEach {
                                 DropdownMenuItem(
                                     text = { Text(it, color = Color.White) },
