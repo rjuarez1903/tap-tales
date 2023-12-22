@@ -83,8 +83,8 @@ fun NewTale(navHostController: NavHostController) {
         containerColor = Night,
         topBar = {
             Text(
-                text = "Craft your tale",
-                style = MaterialTheme.typography.headlineMedium,
+                text = "Craft Your Tale",
+                style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
