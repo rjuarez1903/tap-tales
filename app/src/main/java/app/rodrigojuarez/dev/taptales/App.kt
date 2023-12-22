@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.shared
+package app.rodrigojuarez.dev.taptales
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -8,14 +8,14 @@ import androidx.compose.ui.graphics.Brush
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import app.rodrigojuarez.dev.taptales.composables.Home
-import app.rodrigojuarez.dev.taptales.composables.NewTale
-import app.rodrigojuarez.dev.taptales.composables.Tale
-import app.rodrigojuarez.dev.taptales.composables.TalesList
+import app.rodrigojuarez.dev.taptales.pages.Home
+import app.rodrigojuarez.dev.taptales.pages.NewTale
+import app.rodrigojuarez.dev.taptales.pages.Tale
+import app.rodrigojuarez.dev.taptales.pages.TalesList
 import app.rodrigojuarez.dev.taptales.ui.theme.DarkPink
 import app.rodrigojuarez.dev.taptales.ui.theme.MidnightPurple
 import app.rodrigojuarez.dev.taptales.ui.theme.ShadowPurple
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenNight
+import app.rodrigojuarez.dev.taptales.ui.theme.Night
 
 @Composable
 fun App() {
@@ -26,7 +26,7 @@ fun App() {
             .background(
                 Brush.verticalGradient(
                     listOf(
-                        StolenNight,
+                        Night,
                         MidnightPurple,
                         ShadowPurple,
                         DarkPink

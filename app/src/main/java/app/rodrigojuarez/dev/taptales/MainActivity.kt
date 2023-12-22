@@ -9,7 +9,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.room.Room
-import app.rodrigojuarez.dev.taptales.shared.App
 import app.rodrigojuarez.dev.taptales.model.AppDatabase
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.ui.theme.TapTalesTheme

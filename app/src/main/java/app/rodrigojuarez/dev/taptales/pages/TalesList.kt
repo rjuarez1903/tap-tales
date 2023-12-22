@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.composables
+package app.rodrigojuarez.dev.taptales.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,16 +39,19 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import app.rodrigojuarez.dev.taptales.R
+import app.rodrigojuarez.dev.taptales.composables.AnimatedCreateTaleButton
+import app.rodrigojuarez.dev.taptales.composables.CustomAlertDialog
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.model.Tale
 import app.rodrigojuarez.dev.taptales.model.TalesViewModel
 import app.rodrigojuarez.dev.taptales.ui.theme.Pink80
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenPurple
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenYellow
+import app.rodrigojuarez.dev.taptales.ui.theme.YetAnotherPurple
+import app.rodrigojuarez.dev.taptales.ui.theme.CustomYellow
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun TalesList(navHostController: NavHostController) {
@@ -80,13 +83,15 @@ fun TalesList(navHostController: NavHostController) {
 fun TaleCard(navHostController: NavHostController, tale: Tale) {
     val db = LocalAppDatabase.current
     val openAlertDialog = remember { mutableStateOf(false) }
+    val dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy, HH:mm")
+    val formattedDate = tale.date.format(dateFormatter)
 
     Column(
         modifier = Modifier
             .padding(top = 16.dp)
             .clip(RoundedCornerShape(16.dp))
             .fillMaxWidth()
-            .background(StolenPurple)
+            .background(YetAnotherPurple)
     ) {
         Row(modifier = Modifier.padding(end = 8.dp, top = 8.dp)) {
             Spacer(modifier = Modifier.weight(1f))
@@ -106,7 +111,7 @@ fun TaleCard(navHostController: NavHostController, tale: Tale) {
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
         )
         Text(
-            text = "December 20, 2023 at 11:57 AM - 547 words",
+            text = " $formattedDate - ${tale.words} words",
             style = MaterialTheme.typography.bodyMedium,
             color = Color.LightGray,
             modifier = Modifier.padding(horizontal = 16.dp)
@@ -181,7 +186,7 @@ fun NoTales(navHostController: NavHostController) {
                     text = "Right now, there are no stories to display here. But don't worry, creating your first enchanting tale is just a moment away. Tap on \"Create New Tale\" and embark on a journey of imagination and wonder. ",
                     style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center,
-                    color = StolenYellow
+                    color = CustomYellow
                 )
             }
         }

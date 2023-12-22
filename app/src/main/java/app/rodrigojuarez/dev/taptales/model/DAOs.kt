@@ -8,7 +8,7 @@ import androidx.room.Query
 
 @Dao
 interface TaleDao {
-    @Query("SELECT * FROM tales")
+    @Query("SELECT * FROM tales ORDER BY date DESC")
     fun getAllTales(): LiveData<List<Tale>>
 
     @Query("SELECT * FROM tales WHERE title = :title")

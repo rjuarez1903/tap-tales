@@ -20,7 +20,7 @@ fun CustomAlertDialog(
         title = {
             Text(
                 text = dialogTitle,
-                color = StolenYellow,
+                color = CustomYellow,
                 fontWeight = FontWeight.Bold
             )
         },
@@ -34,7 +34,7 @@ fun CustomAlertDialog(
         confirmButton = {
             TextButton(
                 onClick = onConfirmation,
-                colors = ButtonDefaults.textButtonColors(contentColor = StolenYellow)
+                colors = ButtonDefaults.textButtonColors(contentColor = CustomYellow)
             ) {
                 Text("Confirm")
             }
@@ -42,12 +42,12 @@ fun CustomAlertDialog(
         dismissButton = {
             TextButton(
                 onClick = onDismissRequest,
-                colors = ButtonDefaults.textButtonColors(contentColor = StolenYellow)
+                colors = ButtonDefaults.textButtonColors(contentColor = CustomYellow)
             ) {
                 Text("Dismiss")
             }
         },
-        containerColor = StolenNight,
+        containerColor = Night,
         textContentColor = Color.White,
     )
 }

@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.composables
+package app.rodrigojuarez.dev.taptales.pages
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.model.Tale
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenOrange
+import app.rodrigojuarez.dev.taptales.ui.theme.CustomOrange
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -44,7 +44,7 @@ fun Tale(slug: String?) {
     }
 
     if (tale == null) {
-        CircularProgressIndicator(color = StolenOrange)
+        CircularProgressIndicator(color = CustomOrange)
     } else {
         Column(
             modifier = Modifier
@@ -55,15 +55,6 @@ fun Tale(slug: String?) {
                 contentAlignment = Alignment.BottomStart
             ) {
                 Column(modifier = Modifier.align(Alignment.BottomStart)) {
-                    Text(
-                        text = "READING TIME: ${tale!!.readingTime}",
-                        color = Color.White,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier
-                            .padding(horizontal = 16.dp)
-                    )
-
                     Text(
                         text = tale!!.title,
                         color = Color.White,

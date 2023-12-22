@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.composables
+package app.rodrigojuarez.dev.taptales.pages
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -43,14 +43,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import app.rodrigojuarez.dev.taptales.composables.CustomSnackbarHost
 import app.rodrigojuarez.dev.taptales.model.AI
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.ui.theme.DarkPink
 import app.rodrigojuarez.dev.taptales.ui.theme.DuskPurple
 import app.rodrigojuarez.dev.taptales.ui.theme.MidnightPurple
 import app.rodrigojuarez.dev.taptales.ui.theme.ShadowPurple
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenNight
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenOrange
+import app.rodrigojuarez.dev.taptales.ui.theme.Night
+import app.rodrigojuarez.dev.taptales.ui.theme.CustomOrange
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -79,7 +80,7 @@ fun NewTale(navHostController: NavHostController) {
 
     Scaffold(
         snackbarHost = { CustomSnackbarHost(snackbarHostState) },
-        containerColor = StolenNight,
+        containerColor = Night,
         topBar = {
             Text(
                 text = "Craft your tale",
@@ -98,7 +99,7 @@ fun NewTale(navHostController: NavHostController) {
                     if (childName.value == "") {
                         coroutineScope.launch {
                             snackbarHostState.showSnackbar(
-                                "There's no value for child's name",
+                                "Please enter your child's name",
                             )
                         }
                     } else {
@@ -118,9 +119,12 @@ fun NewTale(navHostController: NavHostController) {
                         }
                     }
                 },
+                enabled = !isLoading.value,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = StolenOrange,
-                    contentColor = Color.White
+                    containerColor = if (!isLoading.value) CustomOrange else Color.Gray,
+                    contentColor = Color.White,
+                    disabledContainerColor = CustomOrange,
+                    disabledContentColor = Color.White
                 ),
                 shape = RoundedCornerShape(0.dp),
                 modifier = Modifier
@@ -138,7 +142,7 @@ fun NewTale(navHostController: NavHostController) {
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                StolenNight,
+                                Night,
                                 MidnightPurple,
                                 ShadowPurple,
                                 DarkPink
@@ -157,8 +161,8 @@ fun NewTale(navHostController: NavHostController) {
                         value = childName.value,
                         onValueChange = { childName.value = it },
                         colors = TextFieldDefaults.outlinedTextFieldColors(
-                            focusedBorderColor = StolenOrange,
-                            unfocusedBorderColor = StolenOrange,
+                            focusedBorderColor = CustomOrange,
+                            unfocusedBorderColor = CustomOrange,
                             textColor = Color.White
                         ),
                         placeholder = {
@@ -186,8 +190,8 @@ fun NewTale(navHostController: NavHostController) {
                                 .menuAnchor()
                                 .fillMaxWidth(),
                             colors = TextFieldDefaults.outlinedTextFieldColors(
-                                focusedBorderColor = StolenOrange,
-                                unfocusedBorderColor = StolenOrange,
+                                focusedBorderColor = CustomOrange,
+                                unfocusedBorderColor = CustomOrange,
                                 textColor = Color.White
                             ),
                             shape = RoundedCornerShape(16.dp)
@@ -216,7 +220,7 @@ fun NewTale(navHostController: NavHostController) {
                         if (isLoading.value) {
                             CircularProgressIndicator(
                                 Modifier.size(72.dp),
-                                color = StolenOrange,
+                                color = CustomOrange,
                                 strokeWidth = 2.dp
                             )
                         }
@@ -243,10 +247,10 @@ fun AgeSlider(ageState: MutableState<Int>) {
             valueRange = 3f..11f,
             steps = 7,
             colors = colors(
-                activeTickColor = StolenOrange,
-                activeTrackColor = StolenOrange,
+                activeTickColor = CustomOrange,
+                activeTrackColor = CustomOrange,
                 inactiveTrackColor = Color.DarkGray,
-                thumbColor = StolenOrange
+                thumbColor = CustomOrange
             ),
         )
     }

@@ -3,6 +3,7 @@ package app.rodrigojuarez.dev.taptales.model
 import android.util.Log
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.gson.Gson
+import java.time.LocalDateTime
 
 object AI {
     private val generativeModel = GenerativeModel(
@@ -17,7 +18,6 @@ object AI {
                 {
                   "slug": "<your-imaginative-title>",
                   "title": "<Your imaginative title>",
-                  "readingTime": "<Minutes to read the story>",
                   "paragraphs": [
                       "<Introduction of the story and setting>",
                       "<Development of the plot>",
@@ -31,7 +31,7 @@ object AI {
             """.trimIndent()
         val prompt = """
                 You are an imaginative writer tasked with creating personalized short stories for 
-                children. Each story is custom-made for a specific child.
+                children. Each story is custom-made for a specific child, considering their age.
                 Please process the following data to craft your story:
                 
                 ```
@@ -50,7 +50,6 @@ object AI {
                 requested language. The story should contain around 7 paragraphs, with a total 
                 character count of 2000 to 2500 characters.
                 - Originality: The story must be original. 
-                It should be specifically crafted for the child, considering their age.
                 
                 Structure your story in this JSON format:
                 
@@ -64,11 +63,20 @@ object AI {
             """.trimIndent()
         val response = generativeModel.generateContent(prompt)
         println("Respuesta de la IA: ${response.text}")
-        return if (response.text == "false") {
+        val tale = if (response.text == "false") {
             null
         } else {
-            val tale = Gson().fromJson(response.text, Tale::class.java)
-            tale
+            Gson().fromJson(response.text, Tale::class.java).apply {
+                words = calculateTotalWords(paragraphs)
+                date = LocalDateTime.now()
+            }
         }
+        return tale
     }
+}
+
+private fun calculateTotalWords(paragraphs: List<String>): String {
+    return paragraphs.sumOf { paragraph ->
+        paragraph.trim().split("\\s+".toRegex()).size
+    }.toString()
 }

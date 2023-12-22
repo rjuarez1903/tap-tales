@@ -23,9 +23,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenNight
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenOrange
-import app.rodrigojuarez.dev.taptales.ui.theme.StolenYellow
+import app.rodrigojuarez.dev.taptales.ui.theme.Night
+import app.rodrigojuarez.dev.taptales.ui.theme.CustomOrange
+import app.rodrigojuarez.dev.taptales.ui.theme.CustomYellow
 
 @Composable
 fun CustomSnackbarHost(snackbarHostState: SnackbarHostState) {
@@ -36,9 +36,9 @@ fun CustomSnackbarHost(snackbarHostState: SnackbarHostState) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
-                    .border(1.dp, StolenYellow, RoundedCornerShape(36.dp))
+                    .border(1.dp, CustomYellow, RoundedCornerShape(36.dp))
                     .clip(RoundedCornerShape(36.dp))
-                    .background(StolenNight)
+                    .background(Night)
             ) {
                 Column(
                     modifier = Modifier
@@ -49,14 +49,14 @@ fun CustomSnackbarHost(snackbarHostState: SnackbarHostState) {
                     Text(
                         text = data.visuals.message,
                         style = MaterialTheme.typography.bodyLarge,
-                        color = StolenYellow,
+                        color = CustomYellow,
                         textAlign = TextAlign.Center
                     )
                     data.visuals.actionLabel?.let { actionLabel ->
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(
                             onClick = { data.performAction() },
-                            colors = ButtonDefaults.buttonColors(containerColor = StolenOrange),
+                            colors = ButtonDefaults.buttonColors(containerColor = CustomOrange),
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                         ) {
                             Text(actionLabel, color = Color.White)
