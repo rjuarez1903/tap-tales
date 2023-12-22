@@ -1,7 +1,6 @@
 package app.rodrigojuarez.dev.taptales.model
 
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
