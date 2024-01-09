@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.rodrigojuarez.dev.taptales.pages.AuthScreen
 import app.rodrigojuarez.dev.taptales.pages.Home
 import app.rodrigojuarez.dev.taptales.pages.NewTale
 import app.rodrigojuarez.dev.taptales.pages.Tale
@@ -36,9 +37,12 @@ fun App() {
     ) {
         NavHost(
             navController = navHostController,
-            startDestination = "home",
+            startDestination = "authScreen",
 
             ) {
+            composable("authScreen") {
+                AuthScreen(navHostController = navHostController)
+            }
             composable("home") {
                 Home(navHostController)
             }
