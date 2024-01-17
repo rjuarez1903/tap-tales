@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.pages
+package app.rodrigojuarez.dev.taptales.ui.pages
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -26,7 +26,6 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults.colors
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -39,14 +38,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import app.rodrigojuarez.dev.taptales.composables.CustomSnackbarHost
+import app.rodrigojuarez.dev.taptales.ui.composables.CustomSnackbarHost
 import app.rodrigojuarez.dev.taptales.model.AI
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.ui.theme.DarkPink

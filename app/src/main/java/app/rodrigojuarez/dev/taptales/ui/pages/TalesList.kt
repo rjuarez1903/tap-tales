@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.pages
+package app.rodrigojuarez.dev.taptales.ui.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,8 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import app.rodrigojuarez.dev.taptales.R
-import app.rodrigojuarez.dev.taptales.composables.AnimatedCreateTaleButton
-import app.rodrigojuarez.dev.taptales.composables.CustomAlertDialog
+import app.rodrigojuarez.dev.taptales.ui.composables.AnimatedCreateTaleButton
+import app.rodrigojuarez.dev.taptales.ui.composables.CustomAlertDialog
 import app.rodrigojuarez.dev.taptales.model.LocalAppDatabase
 import app.rodrigojuarez.dev.taptales.model.Tale
 import app.rodrigojuarez.dev.taptales.model.TalesViewModel

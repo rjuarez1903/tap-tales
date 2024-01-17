@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.pages
+package app.rodrigojuarez.dev.taptales.ui.pages
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box

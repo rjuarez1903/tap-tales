@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales
+package app.rodrigojuarez.dev.taptales.auth
 
 sealed class AuthUiEvent {
     data class SignUpUsernameChanged(val value: String): AuthUiEvent()
