@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.ui.pages
+package app.rodrigojuarez.dev.taptales.ui.pages.auth
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -28,7 +28,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import app.rodrigojuarez.dev.taptales.auth.AuthUiEvent
 import app.rodrigojuarez.dev.taptales.auth.AuthResult
 import app.rodrigojuarez.dev.taptales.model.MainViewModel
 import app.rodrigojuarez.dev.taptales.ui.theme.CustomOrange

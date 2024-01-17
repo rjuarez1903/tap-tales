@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.auth
+package app.rodrigojuarez.dev.taptales.ui.pages.auth
 
 data class AuthState(
     val isLoading: Boolean = false,

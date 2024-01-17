@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.rodrigojuarez.dev.taptales.auth.AuthState
-import app.rodrigojuarez.dev.taptales.auth.AuthUiEvent
+import app.rodrigojuarez.dev.taptales.ui.pages.auth.AuthState
+import app.rodrigojuarez.dev.taptales.ui.pages.auth.AuthUiEvent
 import app.rodrigojuarez.dev.taptales.auth.AuthRepository
 import app.rodrigojuarez.dev.taptales.auth.AuthResult
 import dagger.hilt.android.lifecycle.HiltViewModel
