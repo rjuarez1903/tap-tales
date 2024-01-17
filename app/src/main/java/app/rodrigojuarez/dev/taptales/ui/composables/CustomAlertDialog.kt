@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.taptales.composables
+package app.rodrigojuarez.dev.taptales.ui.composables
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults

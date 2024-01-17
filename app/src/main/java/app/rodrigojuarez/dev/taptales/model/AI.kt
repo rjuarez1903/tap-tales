@@ -10,7 +10,7 @@ object AI {
         // Use a model that's applicable for your use case (see "Implement basic use cases" below)
         modelName = "gemini-pro", // "models/gemini-pro"
         // Access your API key as a Build Configuration variable (see "Set up your API key" above)
-        apiKey = ""
+        apiKey = "AIzaSyBpa2QetbCbxqDZxTTKz4vBY4Wo21JxLc4"
     )
 
     suspend fun requestTale(childName: String, age: String, language: String): Tale? {
