@@ -2,6 +2,7 @@ package app.rodrigojuarez.dev.taptales.auth
 
 import app.rodrigojuarez.dev.taptales.model.Tale
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 
@@ -16,8 +17,8 @@ interface AuthApi {
         @Body request: AuthRequest
     ): TokenResponse
 
-    @POST("authenticate")
+    @GET("auth/authenticate")
     suspend fun authenticate(
         @Header("Authorization") token: String
-    ): Tale
+    )
 }
